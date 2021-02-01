@@ -17,6 +17,7 @@ fetch('https://api.spotify.com/v1/browse/new-releases?country=NL&limit=50&offset
     for (let i = 0; i < 10; i++) {
         const artist = albumsList[i].artists[0].name
         const album = albumsList[i].name
+        const imageURL = albumsList[i].images[0].url
         console.log(`artiest: ${albumsList[i].artists[0].name}`)
         console.log(`album: ${albumsList[i].name}`)
 
@@ -37,7 +38,10 @@ fetch('https://api.spotify.com/v1/browse/new-releases?country=NL&limit=50&offset
         artistHeading.appendChild(artistHeadingText)
         albumArticle.appendChild(artistHeading)
 
-
+        //insert album cover (image)
+        let albumCoverImageElement = document.createElement('img')
+        albumCoverImageElement.src = imageURL
+        albumArticle.appendChild(albumCoverImageElement)
 
 
     }
