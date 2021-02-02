@@ -14,17 +14,16 @@
 
 body {
     color: white;
-    background-color: var(--dark-green);
+    background-color: var(--black);
     margin: 0;
     font-family: 'Poppins', sans-serif;
 }
 
 h1 {
-    color: black;
     margin-left: 5vw;
 }
 
-.albums {
+.games {
     display: grid;
     gap: 3em;
     grid-template-columns: repeat(3, 1fr);
@@ -32,7 +31,34 @@ h1 {
     margin: auto;
 }
 
-.albums img {
+.games img {
     width: 100%;
+    object-fit: cover;
+    height: 40vh;
+    margin-top: 1em;
+}
 
+.game h2 {
+    margin: 0;
+}
+
+.game h3 {
+    margin: 0;
+    font-size: .9em;
+}
+
+.game .thumbnail-container {
+    position: relative;
+}
+
+.game .thumbnail-container .genre {
+    position: absolute;
+    top: 0;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: .9em;
+    right: 0;
+    background-color: white;
+    color: black;
+    padding: .5em;
 }

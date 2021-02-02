@@ -1,51 +1,40 @@
 /* spotify api's: https://developer.spotify.com/documentation/web-api/reference/#category-tracks */
 /* endpoint creator: https://developer.spotify.com/console/get-new-releases/?country=SE&limit=100&offset=10 */
+// https://api.osrsbox.com/index.html
 
+const url = "https://api.rawg.io/api/games?page_size=30"
 
-fetch('https://api.spotify.com/v1/browse/new-releases?country=NL&limit=50&offset=5', {
-    method: 'GET',
-    headers: {
-        'Content-Type': 'application/json',
-        "Authorization": "Bearer BQBQIWjK8BHWcRi1O9fzWmbYBsgy8eKXZiJFXL183waHgvWfCtvIPYxO45RcjM78qm_T4fBJfU4TfCN69VNjzH9EyEN3f-JEVe934Wkktpm1gV_JDj6_XDr-_zBfyX9AfvHVK0Kj7kfkkYZEvdrno8c09-GE2BBeuTE"
+getData(url)
+    .then(data => {
+        console.log(data)
+        const gameList = data.results
+        console.log(gameList[0])
+
+        gameList.forEach(game => {
+            const gameName = game.name
+            const gameRating = game.rating
+            const imageURL = game.background_image
+            const primaryGenre = game.genres[0].name
+            const gameSection = document.querySelector('.games')
+
+            //insert game articles
+            const gameAlbumElement =
+                `<article class="game">
+                <h2>${gameName}</h2>
+                <h3>Rating: ${gameRating}</h3>
+                <div class="thumbnail-container">
+                <p class="genre">${primaryGenre}</p>
+                <img src="${imageURL}" alt=""/>
+                </div>
+            </article>`
+            gameSection.insertAdjacentHTML('beforeend', gameAlbumElement)
+        })
     }
-}).then(response => {
-    return response.json()
-}).then(data => {
-    const albumsList = data.albums.items
-    console.log(albumsList)
+    );
 
-    for (let i = 0; i < 10; i++) {
-        const artist = albumsList[i].artists[0].name
-        const album = albumsList[i].name
-        const imageURL = albumsList[i].images[0].url
-        console.log(`artiest: ${albumsList[i].artists[0].name}`)
-        console.log(`album: ${albumsList[i].name}`)
-
-        //insert album article
-        let albumSection = document.querySelector('.albums')
-        let albumArticle = document.createElement('article')
-        albumSection.appendChild(albumArticle)
-
-        //insert album text to new heading
-        let albumHeading = document.createElement('h2')
-        var albumsHeadingText = document.createTextNode(album)
-        albumHeading.appendChild(albumsHeadingText)
-        albumArticle.appendChild(albumHeading)
-
-        //insert artist text to new heading
-        let artistHeading = document.createElement('h3')
-        var artistHeadingText = document.createTextNode(artist)
-        artistHeading.appendChild(artistHeadingText)
-        albumArticle.appendChild(artistHeading)
-
-        //insert album cover (image)
-        let albumCoverImageElement = document.createElement('img')
-        albumCoverImageElement.src = imageURL
-        albumArticle.appendChild(albumCoverImageElement)
-
-
-    }
-
-
+function getData(url) {
+    return fetch(url)
+        .then(response => {
+            return response.json()
+        })
 }
-);
