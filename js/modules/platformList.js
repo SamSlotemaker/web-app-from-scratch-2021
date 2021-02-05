@@ -1,5 +1,5 @@
 import { getData } from "./api.js";
-const oderedBy = 'year_start'
+const oderedBy = '-games_count'
 const platformsURL = 'https://api.rawg.io/api/platforms?ordering=' + oderedBy
 
 export function createPlatformList() {

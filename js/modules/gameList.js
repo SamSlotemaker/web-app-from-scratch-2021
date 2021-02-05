@@ -11,11 +11,19 @@ export function createGameList() {
                 //insert game articles
                 const gameAlbumElement =
                     `<article class="game">
+                    <header>
                     <h2>${game.name}</h2>
                     <h3>Rating: ${game.rating}</h3>
+                    </header>
                     <div class="thumbnail-container">
-                        <p class="genre">${game.genres[0].name}</p>
-                        <img src="${game.background_image}" alt=""/>
+                        <a href='#'>
+                            <span>
+                                Details
+                            </span>
+                        </a>
+                            <p class="genre">${game.genres[0].name}</p>
+                            <img src="${game.background_image}" alt=""/>
+                       
                     </div>
                 </article>`
                 gameSection.insertAdjacentHTML('beforeend', gameAlbumElement)
