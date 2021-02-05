@@ -9,6 +9,9 @@
 * [External Data](#External_Data)
 * [Sources](#Sources)
 
+## Live Demo
+Visit the live demo [Here](https://samslotemaker.github.io/web-app-from-scratch-2021/)
+
 ## :book:Description
 In Web App From Scratch we will learn to create a digital weg app using and external API, with vanilla html, css and javascript. 
 
@@ -20,7 +23,7 @@ Collecting certain games and platforms from the external API, while rendering th
 You need to have [GIT](https://git-scm.com/downloads) installed to clone this repo
 
 To view the project on your own device, you can clone the repository
-`git clone https://github.com/SamSlotemaker/web-app-from-scratch-2021.git`
+```git clone https://github.com/SamSlotemaker/web-app-from-scratch-2021.git```
 
 ## :book:External Data
 Data will be collected from an open API called [rawG.io](https://rawg.io/apidocs), a large videogame library with over 500.000+ games, where you can collect deetailed info about every single one.
