@@ -1,6 +1,6 @@
 import { getData } from "./api.js";
-const oderedBy = '-games_count'
-const platformsURL = 'https://api.rawg.io/api/platforms?ordering=' + oderedBy
+const orderedBy = '-games_count'
+const platformsURL = 'https://api.rawg.io/api/platforms?ordering=' + orderedBy
 
 export function createPlatformList() {
     getData(platformsURL).then(data => {
