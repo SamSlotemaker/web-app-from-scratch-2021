@@ -4,11 +4,11 @@ const subject = 'games'
 const query = '?page_size=10'
 const gamesURL = "https://api.rawg.io/api/games?page_size=10"
 
+//return array of articles with games
 export async function createGameList() {
     const data = await getData(baseURL + subject + query)
         .then(data => {
             const gameList = data.results
-            console.log(gameList)
             const gamesArray = []
             gameList.forEach(game => {
                 //insert game articles
