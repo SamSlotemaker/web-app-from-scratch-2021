@@ -1,4 +1,4 @@
-let buttons = document.querySelectorAll('body>section>button')
+let buttons = document.querySelectorAll('body>main>section>button')
 buttons.forEach(button => {
     button.addEventListener('click', openSection)
 })

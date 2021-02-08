@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
 
 :root {
-    --dark-green: #1db954;
-    --light-green: #1ed760;
+    --light-grey: #DCDCDC;
     --white: #fff;
-    --black: #212121
+    --black: #212121;
+    --orange: #F97E2B;
 }
 
 * {
@@ -13,7 +13,7 @@
 }
 
 body {
-    color: #DCDCDC;
+    color: var(--light-grey);
     background-color: var(--black);
     margin: 0;
     font-family: 'Poppins', sans-serif;
@@ -21,18 +21,18 @@ body {
 }
 
 h1 {
-    color: #F97E2B;
+    color: var(--orange);
     font-size: 3em;
 }
 
 /* SECTION OPEN AND CLOSE */
-body>section>button h2 {
+body>main>section>button h2 {
     pointer-events: none;
 }
 
-body>section>button {
+body>main>section>button {
     font-size: 1em;
-    color: #DCDCDC;
+    color: var(--light-grey);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -43,28 +43,27 @@ body>section>button {
     cursor: pointer;
 }
 
-body>section>button:after {
+body>main>section>button:after {
     content: "";
     width: 0;
     height: 0;
     border-left: 1em solid transparent;
     border-right: 1em solid transparent;
-    border-top: 1em solid #fff;
-}
+    border-top: 1em solid var(--white);
 }
 
-body>section>button:active {
+body>main>section>button:active {
     outline: 0;
 }
 
 
-body>section>button+.games,
-body>section>button+.platforms {
+body>main>section>button+.games,
+body>main>section>button+.platforms {
     display: none;
 }
 
-body>section>.openSection+.games,
-body>section>.openSection+.platforms {
+body>main>section>.openSection+.games,
+body>main>section>.openSection+.platforms {
     display: grid;
 }
 
@@ -92,7 +91,7 @@ body>section>.openSection+.platforms {
 }
 
 .game header {
-    background-color: #DCDCDC;
+    background-color: var(--light-grey);
     color: var(--black);
     padding: .5em 1em;
 
@@ -200,4 +199,30 @@ body>section>.openSection+.platforms {
     margin-left: .25em;
     font-weight: bold;
     font-size: 1.5em;
+}
+
+
+/* DETAILS */
+.game-details .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2em;
+}
+
+.game-details .back-button {
+    display: inline-block;
+    padding: 1em;
+    background-color: var(--light-grey);
+    color: black;
+    margin: 1em;
+}
+
+.game-details img {
+    width: 100%
+}
+
+.game-details p,
+.game-details h2 {
+    margin: 0;
+    padding: 0;
 }

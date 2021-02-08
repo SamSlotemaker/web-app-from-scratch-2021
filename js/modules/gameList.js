@@ -8,6 +8,7 @@ export async function createGameList() {
     const data = await getData(baseURL + subject + query)
         .then(data => {
             const gameList = data.results
+            console.log(gameList)
             const gamesArray = []
             gameList.forEach(game => {
                 //insert game articles
@@ -18,7 +19,7 @@ export async function createGameList() {
                             <h3>Rating: ${game.rating}</h3>
                         </header>
                         <div class="thumbnail-container">
-                            <a href='#'>
+                            <a href='#game/${game.id}'>
                                 <span>
                                     Details
                                 </span>
