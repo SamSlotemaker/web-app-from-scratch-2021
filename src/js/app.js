@@ -1,6 +1,4 @@
-import { overview, detail } from './modules/router.js'
+import { router } from './modules/router.js'
 
-routie('', overview)
-routie('game/:id', detail)
-
-
+//calls router that will start the app
+router()
