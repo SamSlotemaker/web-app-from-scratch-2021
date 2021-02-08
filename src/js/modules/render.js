@@ -46,7 +46,7 @@ export function detail(id) {
         .then(game => {
             const details = `
             <article class="game-details">
-                <a href="../" class="back-button">Back</a>
+                <a href="#overview" class="back-button">Back</a>
                 <h1>${game.name}</h1>
                 <div class="grid-container">
                     <img src="${game.background_image}" alt="">
