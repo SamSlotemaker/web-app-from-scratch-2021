@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
 
 :root {
-    --light-grey: #DCDCDC;
+    --light-grey: #000000;
     --white: #fff;
-    --black: #212121;
+    --bgc: rgb(211, 210, 210);
     --orange: #F97E2B;
 }
 
@@ -14,7 +14,7 @@
 
 body {
     color: var(--light-grey);
-    background-color: var(--black);
+    background-color: var(--bgc);
     margin: 0;
     font-family: 'Poppins', sans-serif;
     padding: 0em 3em;
@@ -23,53 +23,16 @@ body {
 h1 {
     color: var(--orange);
     font-size: 3em;
+    max-width: 1400px;
+    margin: 1em auto;
 }
 
-/* SECTION OPEN AND CLOSE */
-body>main>section>button h2 {
-    pointer-events: none;
+body>main>section {
+    max-width: 1400px;
+    margin: 0em auto 4em auto;
 }
 
-body>main>section>button {
-    font-size: 1em;
-    color: var(--light-grey);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    text-align: left;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-}
-
-body>main>section>button:after {
-    content: "";
-    width: 0;
-    height: 0;
-    border-left: 1em solid transparent;
-    border-right: 1em solid transparent;
-    border-top: 1em solid var(--white);
-}
-
-body>main>section>button:active {
-    outline: 0;
-}
-
-
-body>main>section>button+.games,
-body>main>section>button+.platforms {
-    display: none;
-}
-
-body>main>section>.openSection+.games,
-body>main>section>.openSection+.platforms {
-    display: grid;
-}
-
-
-
-
+/* GAMES */
 .games {
     display: grid;
     gap: 1em;
@@ -77,67 +40,48 @@ body>main>section>.openSection+.platforms {
     margin: auto;
 }
 
-.games h2 {
-    grid-column: 1 / -1;
-    margin: 0;
-    gap: 0;
-}
-
-.games img {
-    width: 100%;
-    object-fit: cover;
+.game {
+    position: relative;
     height: 40vh;
     margin: 0;
 }
 
-.game header {
-    background-color: var(--light-grey);
-    color: var(--black);
-    padding: .5em 1em;
-
+.game a {
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    display: block;
 }
 
-.game a {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.game header {
+    padding: 1em;
     color: white;
-    background-color: black;
-    text-decoration: none;
-    opacity: 0;
+}
+
+.game img {
     width: 100%;
     height: 100%;
-    font-weight: bold;
-}
-
-.game a span {
-    background-color: var(--orange);
-    color: black;
-    padding: 1em;
-}
-
-.game a:hover {
-    opacity: .75;
-}
-
-.game h2 {
-    margin: 0;
-}
-
-.game h3 {
-    margin: 0;
-    font-size: .9em;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -2;
 }
 
 .game .thumbnail-container {
-    position: relative;
-
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: black;
+    z-index: -1;
+    opacity: .7;
 }
 
-.game .thumbnail-container .genre {
+.game .genre {
     position: absolute;
-    top: 0;
+    bottom: 0;
     font-weight: bold;
     text-transform: uppercase;
     font-size: .9em;
@@ -148,11 +92,15 @@ body>main>section>.openSection+.platforms {
     padding: .5em;
 }
 
+.game:hover {
+    transform: scale(1.05) translateY(-10px);
+}
+
 /* PLATFORMS */
 .platforms {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-
+    color: white;
 }
 
 .platform {
@@ -203,6 +151,11 @@ body>main>section>.openSection+.platforms {
 
 
 /* DETAILS */
+.game-details {
+    max-width: 1400px;
+    margin: auto;
+}
+
 .game-details .grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -211,9 +164,12 @@ body>main>section>.openSection+.platforms {
 
 .game-details .back-button {
     display: inline-block;
-    padding: 1em;
-    background-color: var(--light-grey);
-    color: black;
+    position: absolute;
+    top: 2em;
+    left: 1em;
+    padding: .5em 1em;
+    background-color: black;
+    color: white;
     margin: 1em;
 }
 

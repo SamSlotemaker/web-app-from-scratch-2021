@@ -9,15 +9,11 @@ export async function overview() {
     const overviewContainer =
         `<h1>Game overview</h1>
     <section>
-        <button class="openSection">
             <h2>Games</h2>
-        </button>
         <div class="games"></div>
     </section>
     <section>
-        <button>
             <h2>All platforms</h2>
-        </button>
         <div class="platforms"> </div>
     </section>`
 
@@ -36,13 +32,12 @@ export async function overview() {
     platformList.forEach(platform => {
         platformSection.insertAdjacentHTML('beforeend', platform)
     })
-
 }
 
 //create detail page
 export function detail(id) {
     clearElement(mainContainer)
-    getData('https://api.rawg.io/api/games/' + id)
+    getData('games/' + id)
         .then(game => {
             const details = `
             <article class="game-details">
@@ -58,7 +53,6 @@ export function detail(id) {
         </article>
             `
             mainContainer.insertAdjacentHTML('beforeend', details)
-
         })
 }
 

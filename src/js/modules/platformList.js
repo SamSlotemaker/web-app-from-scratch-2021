@@ -1,11 +1,10 @@
 import { getData } from "./api.js"
-const baseURL = "https://api.rawg.io/api/"
 const subject = 'platforms'
 const query = '?ordering=-games_count'
 
 //returns array of articles with platforms
 export async function createPlatformList() {
-    const data = await getData(baseURL + subject + query).then(data => {
+    const data = await getData(subject + query).then(data => {
         const platformList = data.results
         const platformArray = []
 

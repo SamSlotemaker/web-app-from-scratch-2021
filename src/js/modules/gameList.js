@@ -1,12 +1,10 @@
 import { getData } from './api.js'
-const baseURL = "https://api.rawg.io/api/"
 const subject = 'games'
 const query = '?page_size=10'
-const gamesURL = "https://api.rawg.io/api/games?page_size=10"
 
 //return array of articles with games
 export async function createGameList() {
-    const data = await getData(baseURL + subject + query)
+    const data = await getData(subject + query)
         .then(data => {
             const gameList = data.results
             const gamesArray = []
@@ -14,19 +12,18 @@ export async function createGameList() {
                 //insert game articles
                 const gameElement =
                     `<article class="game">
+                    <a href='#game/${game.id}'>
                         <header>
                             <h2>${game.name}</h2>
                             <h3>Rating: ${game.rating}</h3>
                         </header>
-                        <div class="thumbnail-container">
-                            <a href='#game/${game.id}'>
-                                <span>
-                                    Details
-                                </span>
-                            </a>
+                      
                             <p class="genre">${game.genres[0].name}</p>
-                            <img src="${game.background_image}" alt=""/>                       
-                        </div>
+                            <div class="thumbnail-container">               
+                        
+                        </div>   
+                        <img src="${game.background_image}" alt=""/> 
+                        </a>
                     </article>`
                 gamesArray.push(gameElement)
             })
