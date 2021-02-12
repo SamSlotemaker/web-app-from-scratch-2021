@@ -19,7 +19,7 @@ In Web App From Scratch we will learn to create a digital weg app using and exte
 Collecting certain games and platforms from the external API, then showing them in an overview and detailpage, where users are able to collect extra information on popular games. 
 
 ### actor diagram
-![actor-diagram](https://user-images.githubusercontent.com/60625329/107749924-910c9e80-6d1b-11eb-95e0-b0b8756e0948.png)
+![actor-diagram (1)](https://user-images.githubusercontent.com/60625329/107751923-4ccecd80-6d1e-11eb-8749-5d75a5b7159b.png)
 
 ### interaction diagram
 ![interaction-diagram](https://user-images.githubusercontent.com/60625329/107749923-8fdb7180-6d1b-11eb-90d2-ad53483c8544.png)
