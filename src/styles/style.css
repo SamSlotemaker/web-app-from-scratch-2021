@@ -93,7 +93,7 @@ body>main>section {
 }
 
 .game:hover {
-    transform: scale(1.05) translateY(-10px);
+    transform: scale(1.02) translateY(-10px);
 }
 
 /* PLATFORMS */

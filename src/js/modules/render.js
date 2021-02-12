@@ -7,7 +7,7 @@ const mainContainer = document.querySelector('main')
 export async function overview() {
     clearElement(mainContainer)
     const overviewContainer =
-        `<h1>Game overview</h1>
+        `<h1>Most popular games</h1>
     <section>
             <h2>Games</h2>
         <div class="games"></div>

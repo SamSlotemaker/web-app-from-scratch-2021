@@ -8,7 +8,16 @@ export async function createGameList() {
         .then(data => {
             const gameList = data.results
             const gamesArray = []
+
             gameList.forEach(game => {
+                let gameGenre;
+                if (!game.genres[0]) {
+                    gameGenre = 'Geen'
+                }
+                else {
+                    gameGenre = game.genres[0].name
+                }
+
                 //insert game articles
                 const gameElement =
                     `<article class="game">
@@ -18,7 +27,7 @@ export async function createGameList() {
                             <h3>Rating: ${game.rating}</h3>
                         </header>
                       
-                            <p class="genre">${game.genres[0].name}</p>
+                            <p class="genre">${gameGenre}</p>
                             <div class="thumbnail-container">               
                         
                         </div>   
