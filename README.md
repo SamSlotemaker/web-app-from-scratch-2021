@@ -22,7 +22,8 @@ Collecting certain games and platforms from the external API, then showing them 
 ![actor-diagram (1)](https://user-images.githubusercontent.com/60625329/107751923-4ccecd80-6d1e-11eb-8749-5d75a5b7159b.png)
 
 ### interaction diagram
-![interaction-diagram](https://user-images.githubusercontent.com/60625329/107749923-8fdb7180-6d1b-11eb-90d2-ad53483c8544.png)
+![interaction-diagram (1)](https://user-images.githubusercontent.com/60625329/107756538-a2a67400-6d24-11eb-82da-0d1ebe8af7d4.png)
+
 
 ## :gear:Installation
 ### prerequisites
