@@ -1,5 +1,6 @@
 import { getData } from './api.js'
 import { createGameList } from './gameList.js'
+import { genreForm } from './genreFilter.js'
 import { createPlatformList } from './platformList.js'
 const mainContainer = document.querySelector('main')
 
@@ -29,21 +30,25 @@ export async function overview() {
     const gameSection = document.querySelector('.games')
     const platformSection = document.querySelector('.platforms')
 
-    //insert games into gameSection
+    // add filter to html 
+    const genreFormHTML = await genreForm()
+    gameSection.insertAdjacentHTML('beforebegin', genreFormHTML)
+
     const gameList = await createGameList()
-
-
-
-    console.log(gameList)
     if (gameList) {
         removeElementsByClass('loading')
-        gameList.forEach(game => {
-            gameSection.insertAdjacentHTML('beforeend', game)
-        })
     }
+    // add gamelist to html
+    gameList.forEach(game => {
+        gameSection.insertAdjacentHTML('beforeend', game)
+    })
+
+
 
 
     const platformList = await createPlatformList()
+
+
     platformList.forEach(platform => {
         platformSection.insertAdjacentHTML('beforeend', platform)
     })
