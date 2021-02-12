@@ -5,7 +5,7 @@ import { createPlatformList } from './platformList.js'
 const mainContainer = document.querySelector('main')
 
 //create overview page
-export async function overview() {
+export async function overview(genre) {
     clearElement(mainContainer)
     const overviewContainer =
         `<h1>Most popular games</h1>
@@ -33,8 +33,18 @@ export async function overview() {
     // add filter to html 
     const genreFormHTML = await genreForm()
     gameSection.insertAdjacentHTML('beforebegin', genreFormHTML)
+    const gameList = await createGameList(genre)
 
-    const gameList = await createGameList()
+    //handle filter
+    let radios = document.querySelectorAll('form>input')
+    radios.forEach(radio => {
+        radio.addEventListener('change', (e) => {
+            console.log(e.target.value)
+            overview(e.target.value)
+        })
+    })
+
+
     if (gameList) {
         removeElementsByClass('loading')
     }

@@ -17,12 +17,26 @@ export async function getGenres() {
 }
 
 
-export async function createGameList() {
+export async function createGameList(genre) {
     return getGames().then(data => {
         const gameList = data.results
         const gamesArray = []
 
-        gameList.forEach(game => {
+        console.log(genre)
+        let filteredGameList;
+
+        // als er gefilterd is
+        if (genre === 'all') {
+            filteredGameList = gameList
+        }
+        else {
+            filteredGameList = gameList.filter(game => {
+                return game.genres[0].name === genre
+            })
+        }
+
+
+        filteredGameList.forEach(game => {
             let gameGenre;
             if (!game.genres[0]) {
                 gameGenre = 'Geen'
@@ -52,5 +66,4 @@ export async function createGameList() {
         return gamesArray
     }
     );
-
 }

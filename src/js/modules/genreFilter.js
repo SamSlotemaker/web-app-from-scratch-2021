@@ -9,11 +9,13 @@ export async function genreForm() {
         genreRadioElements += `<input name='genres' value="${genre}" id="${genre}" type="radio"/>
         <label for="${genre}">${genre}</label>
         `
-        // genreRadioElements.push(genreRadioElement)
     })
 
     let form = `
-    <form>${genreRadioElements}</form> 
+    <form>
+    <input name='genres' value="all" id="all" type="radio"/>
+    <label for="all">All</label>
+    ${genreRadioElements}</form> 
     `
     return form
 }
