@@ -10,7 +10,14 @@ export async function overview() {
         `<h1>Most popular games</h1>
     <section>
             <h2>Games</h2>
-        <div class="games"></div>
+        <div class="games">
+       <article class="loading"></article>
+       <article class="loading"></article>
+       <article class="loading"></article>
+       <article class="loading"></article>
+       <article class="loading"></article>
+       <article class="loading"></article>
+        </div>
     </section>
     <section>
             <h2>All platforms</h2>
@@ -24,9 +31,15 @@ export async function overview() {
 
     //insert games into gameSection
     const gameList = await createGameList()
+
     gameList.forEach(game => {
         gameSection.insertAdjacentHTML('beforeend', game)
     })
+
+    console.log(gameList)
+    if (gameList) {
+        removeElementsByClass('loading')
+    }
 
     const platformList = await createPlatformList()
     platformList.forEach(platform => {
@@ -58,4 +71,10 @@ export function detail(id) {
 
 function clearElement(element) {
     element.innerHTML = ''
+}
+function removeElementsByClass(className) {
+    var elements = document.getElementsByClassName(className);
+    while (elements.length > 0) {
+        elements[0].parentNode.removeChild(elements[0]);
+    }
 }

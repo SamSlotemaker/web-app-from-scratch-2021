@@ -33,6 +33,12 @@ body>main>section {
 }
 
 /* GAMES */
+.games .loading {
+    width: 100%;
+    height: 40vh;
+    background-color: rgb(102, 102, 102);
+}
+
 .games {
     display: grid;
     gap: 1em;
