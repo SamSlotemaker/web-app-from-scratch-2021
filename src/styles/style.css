@@ -36,7 +36,7 @@ body>main>section {
 
 /* games genre form */
 main>section:nth-of-type(1) form {
-    margin: 2em;
+    margin: 2em 0em;
 }
 
 main>section:nth-of-type(1) form>input {
