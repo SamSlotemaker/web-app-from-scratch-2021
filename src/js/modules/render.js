@@ -32,14 +32,16 @@ export async function overview() {
     //insert games into gameSection
     const gameList = await createGameList()
 
-    gameList.forEach(game => {
-        gameSection.insertAdjacentHTML('beforeend', game)
-    })
+
 
     console.log(gameList)
     if (gameList) {
         removeElementsByClass('loading')
+        gameList.forEach(game => {
+            gameSection.insertAdjacentHTML('beforeend', game)
+        })
     }
+
 
     const platformList = await createPlatformList()
     platformList.forEach(platform => {
@@ -49,6 +51,7 @@ export async function overview() {
 
 //create detail page
 export function detail(id) {
+    console.log('detail')
     clearElement(mainContainer)
     getData('games/' + id)
         .then(game => {
