@@ -16,7 +16,13 @@ Visit the live demo [Here](https://samslotemaker.github.io/web-app-from-scratch-
 In Web App From Scratch we will learn to create a digital weg app using and external API, with vanilla html, css and javascript. 
 
 ## :pencil:Concept
-Collecting certain games and platforms from the external API, while rendering them in an overview page. 
+Collecting certain games and platforms from the external API, then showing them in an overview and detailpage, where users are able to collect extra information on popular games. 
+
+### actor diagram
+![actor-diagram](https://user-images.githubusercontent.com/60625329/107749924-910c9e80-6d1b-11eb-95e0-b0b8756e0948.png)
+
+### interaction diagram
+![interaction-diagram](https://user-images.githubusercontent.com/60625329/107749923-8fdb7180-6d1b-11eb-90d2-ad53483c8544.png)
 
 ## :gear:Installation
 ### prerequisites
