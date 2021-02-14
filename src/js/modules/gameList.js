@@ -1,27 +1,10 @@
-import { getData } from './api.js'
+import { getGames } from './api.js'
 const subject = 'games'
 const query = '?page_size=10'
 
-//return array of articles with games
-export async function getGames() {
-    //get from localstorage first
-    const localStorageGameList = localStorage.getItem('GAME_LIST')
-    //fetch data if localstorage doesn't exist
-    return localStorageGameList ? JSON.parse(localStorageGameList) : await getData(subject + query)
-
-}
-
-export async function getGenres() {
-    const games = await getGames()
-    const gameList = games.results
-    const genreList = gameList.map(game => game.genres[0].name)
-    const uniqueGenres = [...new Set(genreList)]
-    return uniqueGenres;
-}
-
 
 export async function createGameList(genre) {
-    return getGames().then(data => {
+    return getGames(subject, query).then(data => {
         // store gameList in localstorage
         localStorage.setItem('GAME_LIST', JSON.stringify(data))
 

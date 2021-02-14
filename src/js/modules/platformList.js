@@ -1,11 +1,17 @@
-import { getData } from "./api.js"
+import { getPlatforms } from "./api.js"
 const subject = 'platforms'
 const query = '?ordering=-games_count'
 
+
+
 //returns array of articles with platforms
 export async function createPlatformList() {
-    const data = await getData(subject + query).then(data => {
+    const data = await getPlatforms(subject + query).then(data => {
+        //add platformlist to localstorage
+        localStorage.setItem('PLATFORM_LIST', JSON.stringify(data))
+
         const platformList = data.results
+
 
         return platformList.map(platform => {
             if (platform.image_background === null) {
