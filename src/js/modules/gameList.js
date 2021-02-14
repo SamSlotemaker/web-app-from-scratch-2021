@@ -4,8 +4,11 @@ const query = '?page_size=10'
 
 //return array of articles with games
 export async function getGames() {
-    const data = await getData(subject + query)
-    return data
+    //get from localstorage first
+    const localStorageGameList = localStorage.getItem('GAME_LIST')
+    //fetch data if localstorage doesn't exist
+    return localStorageGameList ? JSON.parse(localStorageGameList) : await getData(subject + query)
+
 }
 
 export async function getGenres() {
@@ -19,6 +22,9 @@ export async function getGenres() {
 
 export async function createGameList(genre) {
     return getGames().then(data => {
+        // store gameList in localstorage
+        localStorage.setItem('GAME_LIST', JSON.stringify(data))
+
         const gameList = data.results
         const gamesArray = []
 
