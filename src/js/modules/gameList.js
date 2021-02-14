@@ -2,14 +2,12 @@ import { getGames } from './api.js'
 const subject = 'games'
 const query = '?page_size=10'
 
-
 export async function createGameList(genre) {
     return getGames(subject, query).then(data => {
         // store gameList in localstorage
         localStorage.setItem('GAME_LIST', JSON.stringify(data))
 
         const gameList = data.results
-        const gamesArray = []
 
         let filteredGameList;
 
@@ -24,7 +22,7 @@ export async function createGameList(genre) {
         }
 
 
-        filteredGameList.forEach(game => {
+        return filteredGameList.map(game => {
             let gameGenre;
             if (!game.genres[0]) {
                 gameGenre = 'Geen'
@@ -34,7 +32,7 @@ export async function createGameList(genre) {
             }
 
             //insert game articles
-            const gameElement =
+            return (
                 `<article class="game">
                     <a href='#game/${game.id}'>
                         <header>
@@ -48,10 +46,9 @@ export async function createGameList(genre) {
                         </div>   
                         <img src="${game.background_image}" alt=""/> 
                         </a>
-                    </article>`
-            gamesArray.push(gameElement)
+                    </article>`)
         })
-        return gamesArray
+
     }
     );
 }
