@@ -1,4 +1,5 @@
 import { overview, detail } from './render.js'
+import '../lib/routie.js'
 
 export function router() {
 
