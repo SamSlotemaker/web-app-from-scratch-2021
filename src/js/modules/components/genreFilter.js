@@ -21,14 +21,4 @@ export async function genreForm() {
     return form
 }
 
-//check is there has been filtered
-export function checkFiltering(array, filter) {
-    if (filter === 'all') {
-        return array
-    }
-    else {
-        return array.filter(game => {
-            return game.genres[0].name === filter
-        })
-    }
-}
+

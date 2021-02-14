@@ -1,5 +1,5 @@
 import { getGames } from '../api/getGames.js'
-import { checkFiltering } from './genreFilter.js'
+import { checkFiltering } from '../utils/utils.js'
 import { checkGenreExisting } from '../utils/utils.js'
 
 const subject = 'games'
