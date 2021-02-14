@@ -1,4 +1,4 @@
-import { getPlatforms } from "../api.js"
+import { getPlatforms } from "../api/getPlatforms.js"
 const subject = 'platforms'
 const query = '?ordering=-games_count'
 

@@ -1,4 +1,4 @@
-import { getGenres } from "../api.js";
+import { getGenres } from "../api/getGenres.js";
 const subject = 'games'
 const query = '?page_size=10'
 

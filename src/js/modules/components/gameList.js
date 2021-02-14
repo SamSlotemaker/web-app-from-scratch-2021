@@ -1,4 +1,4 @@
-import { getGames } from '../api.js'
+import { getGames } from '../api/getGames.js'
 import { checkFiltering } from './genreFilter.js'
 import { checkGenreExisting } from '../utils/utils.js'
 
