@@ -22,7 +22,6 @@ export async function createGameList(genre) {
         const gameList = data.results
         const gamesArray = []
 
-        console.log(genre)
         let filteredGameList;
 
         // als er gefilterd is

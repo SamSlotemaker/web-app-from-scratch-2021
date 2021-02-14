@@ -6,9 +6,8 @@ const query = '?ordering=-games_count'
 export async function createPlatformList() {
     const data = await getData(subject + query).then(data => {
         const platformList = data.results
-        const platformArray = []
 
-        platformList.forEach(platform => {
+        return platformList.map(platform => {
             if (platform.image_background === null) {
                 //black background when img is empty
                 platform.image_background = 'https://cdn.webshopapp.com/shops/280017/files/350149255/990x600x1/image.jpg'
@@ -22,10 +21,8 @@ export async function createPlatformList() {
                     </div>
                     <img src="${platform.image_background}" alt=""/>
                 </article>`
-
-            platformArray.push(platformElement)
+            return platformElement
         })
-        return platformArray
     })
     return data
 }

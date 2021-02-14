@@ -39,7 +39,6 @@ export async function overview(genre) {
     let radios = document.querySelectorAll('form>input')
     radios.forEach(radio => {
         radio.addEventListener('change', (e) => {
-            console.log(e.target.value)
             overview(e.target.value)
         })
     })
@@ -66,7 +65,6 @@ export async function overview(genre) {
 
 //create detail page
 export function detail(id) {
-    console.log('detail')
     clearElement(mainContainer)
     getData('games/' + id)
         .then(game => {
