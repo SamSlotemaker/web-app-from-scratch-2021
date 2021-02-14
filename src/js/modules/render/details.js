@@ -1,4 +1,4 @@
-import { clearElement } from '../utils.js'
+import { clearElement } from '../utils/utils.js'
 const mainContainer = document.querySelector('main')
 import { getData } from './../api.js'
 

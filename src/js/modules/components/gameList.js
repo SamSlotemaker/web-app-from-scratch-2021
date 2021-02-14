@@ -1,6 +1,6 @@
-import { getGames } from './api.js'
+import { getGames } from '../api.js'
 import { checkFiltering } from './genreFilter.js'
-import { checkGenreExisting } from './utils.js'
+import { checkGenreExisting } from '../utils/utils.js'
 
 const subject = 'games'
 const query = '?page_size=10'

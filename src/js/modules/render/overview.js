@@ -1,7 +1,7 @@
-import { createGameList } from '../gameList.js'
-import { genreForm } from '../genreFilter.js'
-import { createPlatformList } from '../platformList.js'
-import { clearElement, removeElementsByClass } from '../utils.js'
+import { createGameList } from '../components/gameList.js'
+import { genreForm } from '../components/genreFilter.js'
+import { createPlatformList } from '../components/platformList.js'
+import { clearElement, removeElementsByClass } from '../utils/utils.js'
 const mainContainer = document.querySelector('main')
 
 //create overview page
