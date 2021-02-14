@@ -38,6 +38,8 @@ export async function overview(genre) {
     let radios = document.querySelectorAll('form>input')
     radios.forEach(radio => {
         radio.addEventListener('change', (e) => {
+            //set filter choice to localstorage
+            localStorage.setItem('FILTER', JSON.stringify(e.target.value))
             overview(e.target.value)
         })
     })
