@@ -8,7 +8,6 @@ export async function genreForm() {
     let genreRadioElements = ''
     //get chosenFilter
     let chosenFilter = JSON.parse(localStorage.getItem('FILTER'))
-
     genres.forEach(genre => {
         //check if the radio needs to be checked when a certain filter is chosen
         if (chosenFilter === genre) {

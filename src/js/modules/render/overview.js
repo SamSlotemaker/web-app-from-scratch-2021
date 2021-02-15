@@ -1,76 +1,22 @@
-import { createGameList } from '../components/gameList.js'
-import { genreForm } from '../components/genreFilter.js'
-import { createPlatformList } from '../components/platformList.js'
-import { clearElement, removeElementsByClass } from '../utils/utils.js'
+import { renderOverviewContainer } from './renderOverviewContainer.js'
+import { renderGameList, renderGenreForm } from './renderGameSection.js'
+import { renderPlatformList } from './renderPlatformSection.js'
+import { clearElement } from '../utils/utils.js'
+import { getGames } from '../api/getGames.js'
 const mainContainer = document.querySelector('main')
+
+const subjectGames = 'games'
+const pageSize = '?page_size=10'
 
 //create overview page
 export async function overview(genre) {
+    const gameData = await getGames(subjectGames, pageSize)
     clearElement(mainContainer)
-    renderOverviewContainer();
+    renderOverviewContainer(mainContainer);
     renderGenreForm()
-    renderGameSection(genre);
-    renderPlatformSection();
-
+    renderGameList(gameData, genre);
+    renderPlatformList();
 }
 
-function renderOverviewContainer() {
-    const overviewContainer =
-        `<h1>Most popular games</h1>
-<section class="games-section">
-        <h2>Games</h2>
-    <div class="games">
-        <article class="loading"></article>
-        <article class="loading"></article>
-        <article class="loading"></article>
-        <article class="loading"></article>
-        <article class="loading"></article>
-        <article class="loading"></article>
-    </div>
-</section>
-<section>
-        <h2>All platforms</h2>
-    <div class="platforms"> </div>
-</section>`
 
-    mainContainer.insertAdjacentHTML('beforeend', overviewContainer)
-}
 
-async function renderPlatformSection() {
-    const platformSection = document.querySelector('.platforms')
-    const platformList = await createPlatformList()
-    //add platformlist to html
-    platformList.forEach(platform => {
-        platformSection.insertAdjacentHTML('beforeend', platform)
-    })
-}
-
-async function renderGameSection(genre) {
-    const gamesContainer = document.querySelector('.games')
-    const gameList = await createGameList(genre)
-    //remove loading state when data is loaded
-    if (gameList) {
-        clearElement(gamesContainer) //clear huidige lijst met games
-
-    }
-    // add gamelist to html
-    gameList.forEach(game => {
-        gamesContainer.insertAdjacentHTML('beforeend', game)
-    })
-}
-async function renderGenreForm() {
-    const gamesSection = document.querySelector('.games-section')
-    // add filter to html 
-    const genreFormHTML = await genreForm()
-    gamesSection.insertAdjacentHTML('afterbegin', genreFormHTML)
-
-    //handle filter
-    let radios = document.querySelectorAll('form>input')
-    radios.forEach(radio => {
-        radio.addEventListener('change', (e) => {
-            //set filter choice to localstorage
-            localStorage.setItem('FILTER', JSON.stringify(e.target.value))
-            renderGameSection(e.target.value)
-        })
-    })
-}

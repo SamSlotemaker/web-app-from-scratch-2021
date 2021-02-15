@@ -5,24 +5,22 @@ import { checkGenreExisting } from '../utils/utils.js'
 const subject = 'games'
 const query = '?page_size=10'
 
-export async function createGameList(genre) {
-    return getGames(subject, query).then(data => {
-        // store gameList in localstorage
-        localStorage.setItem('GAME_LIST', JSON.stringify(data))
+export async function createGameList(data, genre) {
+    console.log(data)
+    // store gameList in localstorage
+    localStorage.setItem('GAME_LIST', JSON.stringify(data))
+    const gameList = data.results
 
+    // check for filtering
+    let filteredGameList;
+    filteredGameList = checkFiltering(gameList, genre)
 
-        const gameList = data.results
+    return filteredGameList.map(game => {
+        let gameGenre = checkGenreExisting(game);
 
-        // check for filtering
-        let filteredGameList;
-        filteredGameList = checkFiltering(gameList, genre)
-
-        return filteredGameList.map(game => {
-            let gameGenre = checkGenreExisting(game);
-
-            //insert game articles
-            return (
-                `<article class="game">
+        //insert game articles
+        return (
+            `<article class="game">
                     <a href='#game/${game.id}'>
                         <header>
                             <h2>${game.name}</h2>
@@ -36,8 +34,8 @@ export async function createGameList(genre) {
                         <img src="${game.background_image}" alt=""/> 
                         </a>
                     </article>`)
-        })
-    }
-    );
+    })
 }
+
+
 
