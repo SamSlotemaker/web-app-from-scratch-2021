@@ -47,12 +47,11 @@ async function renderPlatformSection() {
 
 async function renderGameSection(genre) {
     const gamesContainer = document.querySelector('.games')
-    clearElement(gamesContainer) //clear huidige lijst met games
-
     const gameList = await createGameList(genre)
     //remove loading state when data is loaded
     if (gameList) {
-        removeElementsByClass('loading')
+        clearElement(gamesContainer) //clear huidige lijst met games
+
     }
     // add gamelist to html
     gameList.forEach(game => {
