@@ -8,4 +8,7 @@ export function router() {
     routie('overview', function () {
         overview('all')
     })
+    routie('*', function () {
+        overview('all')
+    })
 }
