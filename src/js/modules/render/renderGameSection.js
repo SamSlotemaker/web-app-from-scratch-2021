@@ -4,7 +4,6 @@ import { clearElement } from '../utils/utils.js'
 
 //render gameslist 
 export function renderGameList(data, genre) {
-    console.log('render games')
     const gamesContainer = document.querySelector('.games')
     //create gamelist
     const gameList = createGameList(data, genre)
@@ -22,7 +21,7 @@ export function renderGameList(data, genre) {
 //render genre form
 export function renderGenreForm(data) {
     const gamesSection = document.querySelector('.games-section')
-    console.log('render Filter options')
+
     //create form
     const genreFormHTML = genreFilter(data)
     //insert into html

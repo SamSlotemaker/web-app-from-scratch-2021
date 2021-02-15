@@ -15,7 +15,6 @@ const PLATFORMS_KEY = 'PLATFORM_LIST'
 //create overview page
 export async function overview(genre) {
     //fetch game and platform data
-    console.log('render overview')
 
     clearElement(mainContainer)
     renderOverviewContainer(mainContainer)
