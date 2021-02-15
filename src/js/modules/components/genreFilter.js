@@ -1,10 +1,9 @@
-import { getGenres } from "../api/getGenres.js";
-const subject = 'games'
-const query = '?page_size=10'
+import { filterGenres } from "../utils/filterGenres.js";
 
 //returns HTML of a form width genre radios
-export async function genreForm() {
-    const genres = await getGenres(subject, query)
+export function genreFilter(data) {
+    const genres = filterGenres(data)
+
     let genreRadioElements = ''
     //get chosenFilter
     let chosenFilter = JSON.parse(localStorage.getItem('FILTER'))

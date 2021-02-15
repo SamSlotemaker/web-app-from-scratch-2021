@@ -1,7 +1,5 @@
-import { getGames } from './getGames.js'
-
-export async function getGenres(subject, query) {
-    const games = await getGames(subject, query)
+export function filterGenres(data) {
+    const games = data
     const gameList = games.results
     const genreList = gameList.map(game => game.genres[0].name)
     const uniqueGenres = [...new Set(genreList)]

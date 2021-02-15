@@ -1,11 +1,10 @@
 import { createPlatformList } from '../components/platformList.js'
 
 //render platform list
-export async function renderPlatformList() {
+export function renderPlatformSection(data) {
     const platformSection = document.querySelector('.platforms')
-
     //create platformlist
-    const platformList = await createPlatformList()
+    const platformList = createPlatformList(data)
 
     //add platformlist to html
     platformList.forEach(platform => {

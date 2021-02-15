@@ -1,15 +1,16 @@
 import { createGameList } from '../components/gameList.js'
-import { genreForm } from '../components/genreFilter.js'
+import { genreFilter } from '../components/genreFilter.js'
 import { clearElement } from '../utils/utils.js'
 
-
 //render gameslist 
-export async function renderGameList(data, genre) {
+export function renderGameList(data, genre) {
     const gamesContainer = document.querySelector('.games')
     //create gamelist
-    const gameList = await createGameList(data, genre).finally(() => {
+    const gameList = createGameList(data, genre)
+
+    if (gameList) {
         clearElement(gamesContainer) //remove loading state when data is loaded or failed
-    })
+    }
 
     // add gamelist to html
     gameList.forEach(game => {
@@ -17,13 +18,12 @@ export async function renderGameList(data, genre) {
     })
 }
 
-
 //render genre form
-export async function renderGenreForm() {
+export function renderGenreForm(data) {
     const gamesSection = document.querySelector('.games-section')
 
     //create form
-    const genreFormHTML = await genreForm()
+    const genreFormHTML = genreFilter(data)
     //insert into html
     gamesSection.insertAdjacentHTML('afterbegin', genreFormHTML)
 

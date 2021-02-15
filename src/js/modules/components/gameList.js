@@ -1,14 +1,9 @@
-import { getGames } from '../api/getGames.js'
 import { checkFiltering } from '../utils/utils.js'
 import { checkGenreExisting } from '../utils/utils.js'
 
-const subject = 'games'
-const query = '?page_size=10'
-
-export async function createGameList(data, genre) {
-    console.log(data)
+// return array with game articles
+export function createGameList(data, genre) {
     // store gameList in localstorage
-    localStorage.setItem('GAME_LIST', JSON.stringify(data))
     const gameList = data.results
 
     // check for filtering
