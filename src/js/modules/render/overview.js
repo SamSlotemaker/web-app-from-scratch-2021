@@ -7,29 +7,33 @@ const mainContainer = document.querySelector('main')
 //create overview page
 export async function overview(genre) {
     clearElement(mainContainer)
-    const overviewContainer =
-        `<h1>Most popular games</h1>
-    <section class="games-section">
-            <h2>Games</h2>
-        <div class="games">
-            <article class="loading"></article>
-            <article class="loading"></article>
-            <article class="loading"></article>
-            <article class="loading"></article>
-            <article class="loading"></article>
-            <article class="loading"></article>
-        </div>
-    </section>
-    <section>
-            <h2>All platforms</h2>
-        <div class="platforms"> </div>
-    </section>`
-
-    mainContainer.insertAdjacentHTML('beforeend', overviewContainer)
+    renderOverviewContainer();
     renderGenreForm()
     renderGameSection(genre);
     renderPlatformSection();
 
+}
+
+function renderOverviewContainer() {
+    const overviewContainer =
+        `<h1>Most popular games</h1>
+<section class="games-section">
+        <h2>Games</h2>
+    <div class="games">
+        <article class="loading"></article>
+        <article class="loading"></article>
+        <article class="loading"></article>
+        <article class="loading"></article>
+        <article class="loading"></article>
+        <article class="loading"></article>
+    </div>
+</section>
+<section>
+        <h2>All platforms</h2>
+    <div class="platforms"> </div>
+</section>`
+
+    mainContainer.insertAdjacentHTML('beforeend', overviewContainer)
 }
 
 async function renderPlatformSection() {
@@ -43,7 +47,7 @@ async function renderPlatformSection() {
 
 async function renderGameSection(genre) {
     const gamesContainer = document.querySelector('.games')
-    clearElement(gamesContainer)
+    clearElement(gamesContainer) //clear huidige lijst met games
 
     const gameList = await createGameList(genre)
     //remove loading state when data is loaded
@@ -57,7 +61,6 @@ async function renderGameSection(genre) {
 }
 async function renderGenreForm() {
     const gamesSection = document.querySelector('.games-section')
-
     // add filter to html 
     const genreFormHTML = await genreForm()
     gamesSection.insertAdjacentHTML('afterbegin', genreFormHTML)
