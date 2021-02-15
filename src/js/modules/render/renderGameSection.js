@@ -33,6 +33,7 @@ export function renderGenreForm(data) {
         radio.addEventListener('change', (e) => {
             //set filter choice to localstorage
             localStorage.setItem('FILTER', JSON.stringify(e.target.value))
+
             const localStorageGameList = JSON.parse(localStorage.getItem('GAME_LIST'))
             renderGameList(localStorageGameList, e.target.value)
         })
