@@ -8,8 +8,9 @@ export function renderGameList(data, genre) {
     //create gamelist
     const gameList = createGameList(data, genre)
 
+    //remove loading state when data is available
     if (gameList) {
-        clearElement(gamesContainer) //remove loading state when data is loaded or failed
+        clearElement(gamesContainer)
     }
 
     // add gamelist to html
@@ -21,7 +22,6 @@ export function renderGameList(data, genre) {
 //render genre form
 export function renderGenreForm(data) {
     const gamesSection = document.querySelector('.games-section')
-
     //create form
     const genreFormHTML = genreFilter(data)
     //insert into html
@@ -33,7 +33,6 @@ export function renderGenreForm(data) {
         radio.addEventListener('change', (e) => {
             //set filter choice to localstorage
             localStorage.setItem('FILTER', JSON.stringify(e.target.value))
-
             const localStorageGameList = JSON.parse(localStorage.getItem('GAME_LIST'))
             renderGameList(localStorageGameList, e.target.value)
         })

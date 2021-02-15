@@ -7,12 +7,10 @@ export function createGameList(data, genre) {
     const gameList = data.results
 
     // check for filtering
-    let filteredGameList;
-    filteredGameList = checkFiltering(gameList, genre)
+    let filteredGameList = checkFiltering(gameList, genre)
 
     return filteredGameList.map(game => {
         let gameGenre = checkGenreExisting(game);
-
         //insert game articles
         return (
             `<article class="game">
