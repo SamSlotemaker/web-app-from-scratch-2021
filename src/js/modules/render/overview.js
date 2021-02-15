@@ -9,15 +9,15 @@ export async function overview(genre) {
     clearElement(mainContainer)
     const overviewContainer =
         `<h1>Most popular games</h1>
-    <section>
+    <section class="games-section">
             <h2>Games</h2>
         <div class="games">
-       <article class="loading"></article>
-       <article class="loading"></article>
-       <article class="loading"></article>
-       <article class="loading"></article>
-       <article class="loading"></article>
-       <article class="loading"></article>
+            <article class="loading"></article>
+            <article class="loading"></article>
+            <article class="loading"></article>
+            <article class="loading"></article>
+            <article class="loading"></article>
+            <article class="loading"></article>
         </div>
     </section>
     <section>
@@ -26,23 +26,24 @@ export async function overview(genre) {
     </section>`
 
     mainContainer.insertAdjacentHTML('beforeend', overviewContainer)
+    renderGenreForm()
+    renderGameSection(genre);
+    renderPlatformSection();
 
-    const gameSection = document.querySelector('.games')
+}
+
+async function renderPlatformSection() {
     const platformSection = document.querySelector('.platforms')
-
-    // add filter to html 
-    const genreFormHTML = await genreForm()
-    gameSection.insertAdjacentHTML('beforebegin', genreFormHTML)
-
-    //handle filter
-    let radios = document.querySelectorAll('form>input')
-    radios.forEach(radio => {
-        radio.addEventListener('change', (e) => {
-            //set filter choice to localstorage
-            localStorage.setItem('FILTER', JSON.stringify(e.target.value))
-            overview(e.target.value)
-        })
+    const platformList = await createPlatformList()
+    //add platformlist to html
+    platformList.forEach(platform => {
+        platformSection.insertAdjacentHTML('beforeend', platform)
     })
+}
+
+async function renderGameSection(genre) {
+    const gamesContainer = document.querySelector('.games')
+    clearElement(gamesContainer)
 
     const gameList = await createGameList(genre)
     //remove loading state when data is loaded
@@ -51,13 +52,23 @@ export async function overview(genre) {
     }
     // add gamelist to html
     gameList.forEach(game => {
-        gameSection.insertAdjacentHTML('beforeend', game)
-    })
-
-    const platformList = await createPlatformList()
-    //add platformlist to html
-    platformList.forEach(platform => {
-        platformSection.insertAdjacentHTML('beforeend', platform)
+        gamesContainer.insertAdjacentHTML('beforeend', game)
     })
 }
+async function renderGenreForm() {
+    const gamesSection = document.querySelector('.games-section')
 
+    // add filter to html 
+    const genreFormHTML = await genreForm()
+    gamesSection.insertAdjacentHTML('afterbegin', genreFormHTML)
+
+    //handle filter
+    let radios = document.querySelectorAll('form>input')
+    radios.forEach(radio => {
+        radio.addEventListener('change', (e) => {
+            //set filter choice to localstorage
+            localStorage.setItem('FILTER', JSON.stringify(e.target.value))
+            renderGameSection(e.target.value)
+        })
+    })
+}
