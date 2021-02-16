@@ -13,13 +13,13 @@ export function router() {
     switch (hash) {
         case '#overview':
             renderOverview(chosenFilter)
-            break;
+            break
         case '#game':
             renderDetail(id)
-            break;
+            break
         case 'root':
             renderOverview(chosenFilter)
-            break;
+            break
     }
 }
 
@@ -27,7 +27,7 @@ export function router() {
 function cleanupHash(hash) {
     // console.log(hash)
     if (hash === '') {
-        return ['root'];
+        return ['root']
     }
     return hash.split('/')
 
