@@ -15,7 +15,7 @@ const GAMES_KEY = 'GAME_LIST'
 const PLATFORMS_KEY = 'PLATFORM_LIST'
 
 //create overview page
-export async function overview(genre) {
+export async function renderOverview(genre) {
     //clear element and create skeleton
     clearElement(mainContainer)
     renderOverviewContainer(mainContainer)

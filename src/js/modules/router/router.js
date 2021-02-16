@@ -1,5 +1,5 @@
-import { overview } from '../render/overview.js'
-import { detail } from '../render/details.js'
+import { renderOverview } from '../render/renderOverview.js'
+import { renderDetail } from '../render/renderDetails.js'
 
 let chosenFilter = JSON.parse(localStorage.getItem('FILTER'))
 if (!chosenFilter) {
@@ -12,13 +12,13 @@ export function router() {
     //check hash in url
     switch (hash) {
         case '#overview':
-            overview(chosenFilter)
+            renderOverview(chosenFilter)
             break;
         case '#game':
-            detail(id)
+            renderDetail(id)
             break;
         case 'root':
-            overview(chosenFilter)
+            renderOverview(chosenFilter)
             break;
     }
 }
@@ -29,8 +29,8 @@ function cleanupHash(hash) {
     if (hash === '') {
         return ['root'];
     }
-    const splittedHash = hash.split('/')
-    return splittedHash;
+    return hash.split('/')
+
 }
 
 window.addEventListener('hashchange', router)

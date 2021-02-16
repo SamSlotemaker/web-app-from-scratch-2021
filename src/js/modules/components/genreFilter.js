@@ -2,7 +2,7 @@ import { filterGenres } from "../utils/filterGenres.js";
 
 
 //returns HTML of a form width genre radios
-export function genreFilter(data) {
+export function createGenreFilter(data) {
     const genres = filterGenres(data)
     let genreRadioElements = ''
     //get chosenFilter

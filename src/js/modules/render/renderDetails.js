@@ -1,9 +1,9 @@
 import { clearElement } from '../utils/utils.js'
-const mainContainer = document.querySelector('main')
 import { getData } from '../api/api.js'
+const mainContainer = document.querySelector('main')
 
-//create detail page
-export function detail(id) {
+//render detail page
+export function renderDetail(id) {
     clearElement(mainContainer)
     getData('games/' + id)
         .then(game => {
@@ -18,7 +18,7 @@ export function detail(id) {
                         ${game.description}
                     </div>
                 </div>
-        </article>
+            </article>
             `
             mainContainer.insertAdjacentHTML('beforeend', details)
         })
