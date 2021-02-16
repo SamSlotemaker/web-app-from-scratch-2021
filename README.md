@@ -19,6 +19,17 @@ In Web App From Scratch we will learn to create a digital weg app using and exte
 Collecting certain games and platforms from the external API, then showing them in an overview and detailpage, where users are able to collect extra information on popular games. 
 Users need to be able to filter games on certain properties, i.e. genre. And they need to be able to favorite games so that they can find them later on. 
 
+### Code standards
+#### Modules
+Keep modules based on a single entity, in the folder that describes their purpose. 
+
+#### Function names
+Camelcase, describe action and outcome. 
+
+Functions that render: render'Component', i.e. `renderDetails`, `renderGameSection`
+Functions that return a Component: create'Component', i.e. `createGameList`, `createGenreFilter`
+
+
 ### Actor diagram
 ![actor-diagram (1)](https://user-images.githubusercontent.com/60625329/107751923-4ccecd80-6d1e-11eb-8749-5d75a5b7159b.png)
 
@@ -992,3 +1003,10 @@ GET response
 </details>
 
 ## :heart:Sources
+https://rawg.io/
+http://projects.jga.me/routie/
+https://developer.mozilla.org/en-US/docs/Web/API/WindowEventHandlers/onhashchange
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
+https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
+https://codeburst.io/javascript-what-is-short-circuit-evaluation-ff22b2f5608c
