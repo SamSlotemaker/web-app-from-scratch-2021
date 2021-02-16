@@ -8,24 +8,4 @@ export function removeElementsByClass(className) {
     }
 }
 
-//check if game genre exists
-export function checkGenreExisting(game) {
-    if (!game.genres[0]) {
-        return 'Geen'
-    }
-    else {
-        return game.genres[0].name
-    }
-}
 
-//check is there has been filtered
-export function checkFiltering(array, filter) {
-    if (filter === 'all') {
-        return array
-    }
-    else {
-        return array.filter(game => {
-            return game.genres[0].name === filter
-        })
-    }
-}

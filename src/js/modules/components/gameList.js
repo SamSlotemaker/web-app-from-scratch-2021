@@ -1,5 +1,5 @@
-import { checkFiltering } from '../utils/utils.js'
-import { checkGenreExisting } from '../utils/utils.js'
+import { checkFiltering } from '../utils/genres.js'
+import { checkGenreExisting } from '../utils/genres.js'
 
 // return array with game articles
 export function createGameList(data, genre) {

@@ -1,4 +1,4 @@
-import { filterGenres } from "../utils/filterGenres.js";
+import { filterGenres } from "../utils/genres.js";
 
 
 //returns HTML of a form width genre radios
