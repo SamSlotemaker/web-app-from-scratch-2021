@@ -27,5 +27,5 @@ export function filterGenres(data) {
     const gameList = games.results
     const genreList = gameList.map(game => game.genres[0].name)
     const uniqueGenres = [...new Set(genreList)]
-    return uniqueGenres;
+    return uniqueGenres
 }

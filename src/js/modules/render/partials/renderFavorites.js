@@ -12,7 +12,7 @@ export function renderFavorites() {
     //add game items when existing
     if (favoriteGames) {
         if (favoriteGames.length > 0) {
-            noFavoritesMessage.remove();
+            noFavoritesMessage.remove()
         }
         const favoriteGameArray = createFavoriteList(favoriteGames)
         favoriteGameArray.forEach(game => {

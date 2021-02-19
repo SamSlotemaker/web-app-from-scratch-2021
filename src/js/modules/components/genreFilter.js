@@ -1,4 +1,4 @@
-import { filterGenres } from "../utils/genres.js";
+import { filterGenres } from '../utils/genres.js'
 
 
 //returns HTML of a form width genre radios
@@ -22,12 +22,12 @@ export function createGenreFilter(data) {
     })
 
     //check of filter has been set to ALL and check radio if so
-    let allRadio;
+    let allRadio
     if (chosenFilter === 'all') {
-        allRadio = `<input name='genres' value="all" id="all" type="radio" checked/>`
+        allRadio = '<input name=\'genres\' value="all" id="all" type="radio" checked/>'
     }
     else {
-        allRadio = `<input name='genres' value="all" id="all" type="radio"/>`
+        allRadio = '<input name=\'genres\' value="all" id="all" type="radio"/>'
     }
 
     //combine form

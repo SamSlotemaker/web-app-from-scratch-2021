@@ -8,7 +8,7 @@ export function handleFavoriteButton(game) {
     if (checkIfAlreadyFavorite(game, currentFavorites)) {
         let newFavorites = removeFromFavorites(game, currentFavorites)
         localStorage.setItem('FAVORITES', JSON.stringify(newFavorites))
-        return;
+        return
     }
     else {
         currentFavorites.push(game)
@@ -22,28 +22,28 @@ export function checkButtonState(game, favorites) {
     if (favorites) {
         //check if game is in favoritelist
         if (checkIfAlreadyFavorite(game, favorites)) {
-            console.log('return active button');
-            return `<button aria-label="favorite" class="favorite-button active">`
+            console.log('return active button')
+            return '<button aria-label="favorite" class="favorite-button active">'
         }
         else {
-            console.log('return in-active button');
-            return `<button aria-label="favorite" class="favorite-button">`
+            console.log('return in-active button')
+            return '<button aria-label="favorite" class="favorite-button">'
         }
     }
     else {
-        console.log('return in-active button');
-        return `<button aria-label="favorite" class="favorite-button">`
+        console.log('return in-active button')
+        return '<button aria-label="favorite" class="favorite-button">'
     }
 }
 //returns true when the game is already in the favorites array
 function checkIfAlreadyFavorite(game, array) {
-    let isExisting = false;
+    let isExisting = false
     array.forEach(item => {
         if (item.id === game.id) {
-            isExisting = true;
+            isExisting = true
         }
     })
-    return isExisting;
+    return isExisting
 }
 
 //returns back the array with given game removed
@@ -51,7 +51,7 @@ function removeFromFavorites(game, array) {
     let newArray = [...array]
     newArray.forEach((item, index) => {
         if (item.id === game.id) {
-            newArray.splice(index, 1);
+            newArray.splice(index, 1)
         }
     })
     return newArray

@@ -1,4 +1,4 @@
-const baseURL = "https://api.rawg.io/api/"
+const baseURL = 'https://api.rawg.io/api/'
 
 //fetching data and returning a json object
 export const getData = async (subject, query, KEY) => {
@@ -6,12 +6,12 @@ export const getData = async (subject, query, KEY) => {
     !query || (url += query) //add query to url when given
 
     //check if key has been given to check localstorage
-    let localStorageData;
+    let localStorageData
     if (KEY) {
         localStorageData = JSON.parse(localStorage.getItem(KEY))
         //return localstorage data if existing
         if (localStorageData) {
-            return localStorageData;
+            return localStorageData
         }
     }
     //fetch data if not available local

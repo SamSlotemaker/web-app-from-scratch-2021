@@ -10,7 +10,7 @@ export function renderDetail(id) {
         .then(game => {
             //check if game is in favorite for the button state
             let currentFavorites = JSON.parse(localStorage.getItem('FAVORITES'))
-            let favoriteButton = checkButtonState(game, currentFavorites);
+            let favoriteButton = checkButtonState(game, currentFavorites)
             //gamedetails
             const details = `
             <article class="game-details">
