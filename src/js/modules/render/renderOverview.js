@@ -20,13 +20,10 @@ export async function renderOverview(genre) {
     //clear element and create skeleton
     clearElement(mainContainer)
     renderOverviewContainer(mainContainer)
-
-    renderFavorites(mainContainer)
-
+    renderFavorites()
     //fetch game and platform data
     const gameData = await getData(subjectGames, pageQuery, GAMES_KEY)
     const platformData = await getData(subjectPlatforms, ordering, PLATFORMS_KEY)
-
     renderGenreForm(gameData)
     renderGameList(gameData, genre)
     renderPlatformSection(platformData)

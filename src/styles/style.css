@@ -32,8 +32,48 @@ body>main>section {
     margin: 0em auto 4em auto;
 }
 
-/* GAMES */
+/* FAVORITES */
+.favorites {
+    padding: 0;
+    list-style-type: none;
+}
 
+.favorites li {
+    height: 15vh;
+    /* border-bottom: var(--orange) 2px solid; */
+    margin-bottom: 1em;
+}
+
+.favorites li a {
+    text-decoration: none;
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.favorites li img {
+    height: 100%;
+    width: 30vh;
+    object-fit: cover;
+    object-position: top;
+}
+
+.favorites div {
+    margin-left: 1em
+}
+
+.favorites h3 {
+    margin: 0;
+    color: black;
+    text-transform: uppercase;
+}
+
+.favorites strong {
+    color: black;
+}
+
+
+/* GAMES */
 /* games genre form */
 main>section:nth-of-type(2) form {
     margin: 2em 0em;
@@ -183,7 +223,7 @@ main>section:nth-of-type(2) form>input:checked+label {
 /* DETAILS */
 .game-details {
     max-width: 1400px;
-    margin: auto;
+    margin: 7em auto;
 }
 
 .game-details .grid-container {
@@ -236,9 +276,14 @@ main>section:nth-of-type(2) form>input:checked+label {
 }
 
 .favorite-button svg {
+    pointer-events: none;
     transform: translateY(1px);
     width: 80%;
     height: 80%;
     fill: white;
     stroke-width: 3px;
+}
+
+.favorite-button.active svg {
+    fill: red;
 }

@@ -4,6 +4,7 @@ export function renderOverviewContainer(container) {
         `<h1>Most popular games</h1>
         <section>
             <h2>Favorites</h2>
+            <p class="no-favorites-message">Je hebt geen favorieten</p>
             <ul class="favorites">
             </ul>
         </section>
