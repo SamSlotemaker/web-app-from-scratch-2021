@@ -26,27 +26,37 @@ export function renderDetail(id) {
 
             const button = document.querySelector('.favorite-button')
             button.addEventListener('click', function () {
-                handleFavoriteButton(id)
+                handleFavoriteButton(game)
             })
         })
 }
 
 
 //handle favorite button when clicked
-function handleFavoriteButton(id) {
+function handleFavoriteButton(game) {
     let currentFavorites = JSON.parse(localStorage.getItem('FAVORITES'))
     if (!currentFavorites) {
         localStorage.setItem('FAVORITES', JSON.stringify([]))
         currentFavorites = JSON.parse(localStorage.getItem('FAVORITES'))
     }
-    if (currentFavorites.includes(id)) {
-        console.log('is al favoriet')
+    if (checkIfAlreadyFavorite(game, currentFavorites)) {
+        console.log('deze game is al favoriet')
         return;
     }
     else {
-        currentFavorites.push(id)
+        currentFavorites.push(game)
     }
-
     console.log(currentFavorites)
     localStorage.setItem('FAVORITES', JSON.stringify(currentFavorites))
+}
+
+//returns true when the game is already in the favorites array
+function checkIfAlreadyFavorite(game, array) {
+    let isExisting = false;
+    array.forEach(item => {
+        if (item.id === game.id) {
+            isExisting = true;
+        }
+    })
+    return isExisting;
 }
