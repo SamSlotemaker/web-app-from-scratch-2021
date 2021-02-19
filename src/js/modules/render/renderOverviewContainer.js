@@ -2,6 +2,11 @@
 export function renderOverviewContainer(container) {
     const overviewContainer =
         `<h1>Most popular games</h1>
+        <section>
+            <h2>Favorites</h2>
+            <ul class="favorites">
+            </ul>
+        </section>
         <section class="games-section">
             <h2>Games</h2>
             <div class="games">

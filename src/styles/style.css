@@ -35,16 +35,16 @@ body>main>section {
 /* GAMES */
 
 /* games genre form */
-main>section:nth-of-type(1) form {
+main>section:nth-of-type(2) form {
     margin: 2em 0em;
 }
 
-main>section:nth-of-type(1) form>input {
+main>section:nth-of-type(2) form>input {
     position: absolute;
     left: -1000em;
 }
 
-main>section:nth-of-type(1) form>label {
+main>section:nth-of-type(2) form>label {
     cursor: pointer;
     background-color: black;
     color: white;
@@ -52,7 +52,7 @@ main>section:nth-of-type(1) form>label {
     opacity: .7;
 }
 
-main>section:nth-of-type(1) form>input:checked+label {
+main>section:nth-of-type(2) form>input:checked+label {
     opacity: 1;
     background-color: var(--orange);
 }

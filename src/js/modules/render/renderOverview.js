@@ -3,6 +3,7 @@ import { renderGameList, renderGenreForm } from './renderGameSection.js'
 import { renderPlatformSection } from './renderPlatformSection.js'
 import { clearElement } from '../utils/utils.js'
 import { getData } from '../api/api.js'
+import { renderFavorites } from './renderFavorites.js'
 
 const mainContainer = document.querySelector('main')
 const subjectGames = 'games'
@@ -19,6 +20,9 @@ export async function renderOverview(genre) {
     //clear element and create skeleton
     clearElement(mainContainer)
     renderOverviewContainer(mainContainer)
+
+    renderFavorites(mainContainer)
+
     //fetch game and platform data
     const gameData = await getData(subjectGames, pageQuery, GAMES_KEY)
     const platformData = await getData(subjectPlatforms, ordering, PLATFORMS_KEY)
