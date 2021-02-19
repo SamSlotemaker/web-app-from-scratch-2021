@@ -19,11 +19,11 @@ export function renderGameList(data, genre) {
 
 //render genre form
 export function renderGenreForm(data) {
-    const gamesSection = document.querySelector('.games-section')
+    const gameSectionHeading = document.querySelector('.games-section h2')
     //create form
     const genreFormHTML = createGenreFilter(data)
     //insert into html
-    gamesSection.insertAdjacentHTML('afterbegin', genreFormHTML)
+    gameSectionHeading.insertAdjacentHTML('afterend', genreFormHTML)
     //handle filter change
     let radios = document.querySelectorAll('form>input')
     radios.forEach(radio => {
