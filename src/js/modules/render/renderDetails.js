@@ -16,10 +16,16 @@ export function renderDetail(id) {
                 //check if game is in favoritelist
                 if (checkIfAlreadyFavorite(game, currentFavorites)) {
                     favoriteButton = `<button aria-label="favorite" class="favorite-button active">`
+                    console.log('favorite')
                 }
                 else {
                     favoriteButton = `<button aria-label="favorite" class="favorite-button">`
+                    console.log('nieeet')
                 }
+            }
+            else {
+                favoriteButton = `<button aria-label="favorite" class="favorite-button">`
+                console.log('nieeet')
             }
             //gamedetails
             const details = `
