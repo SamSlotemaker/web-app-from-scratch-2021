@@ -1,7 +1,7 @@
-import { clearElement } from '../utils/utils.js'
-import { getData } from '../api/api.js'
+import { clearElement } from '../../utils/utils.js'
+import { getData } from '../../api/api.js'
 const mainContainer = document.querySelector('main')
-import { handleFavoriteButton, checkIfAlreadyFavorite } from '../utils/favorites.js'
+import { handleFavoriteButton, checkButtonState } from '../../utils/favorites.js'
 
 //render detail page
 export function renderDetail(id) {
@@ -10,23 +10,7 @@ export function renderDetail(id) {
         .then(game => {
             //check if game is in favorite for the button state
             let currentFavorites = JSON.parse(localStorage.getItem('FAVORITES'))
-            let favoriteButton;
-            //check if favoritelist exists
-            if (currentFavorites) {
-                //check if game is in favoritelist
-                if (checkIfAlreadyFavorite(game, currentFavorites)) {
-                    favoriteButton = `<button aria-label="favorite" class="favorite-button active">`
-                    console.log('favorite')
-                }
-                else {
-                    favoriteButton = `<button aria-label="favorite" class="favorite-button">`
-                    console.log('nieeet')
-                }
-            }
-            else {
-                favoriteButton = `<button aria-label="favorite" class="favorite-button">`
-                console.log('nieeet')
-            }
+            let favoriteButton = checkButtonState(game, currentFavorites);
             //gamedetails
             const details = `
             <article class="game-details">

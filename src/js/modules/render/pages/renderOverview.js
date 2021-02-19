@@ -1,9 +1,9 @@
-import { renderOverviewContainer } from './renderOverviewContainer.js'
-import { renderGameList, renderGenreForm } from './renderGameSection.js'
-import { renderPlatformSection } from './renderPlatformSection.js'
-import { clearElement } from '../utils/utils.js'
-import { getData } from '../api/api.js'
-import { renderFavorites } from './renderFavorites.js'
+import { renderOverviewContainer } from '../partials/renderOverviewContainer.js'
+import { renderGameList, renderGenreForm } from '../partials/renderGameSection.js'
+import { renderPlatformSection } from '../partials/renderPlatformSection.js'
+import { clearElement } from '../../utils/utils.js'
+import { getData } from '../../api/api.js'
+import { renderFavorites } from '../partials/renderFavorites.js'
 
 const mainContainer = document.querySelector('main')
 const subjectGames = 'games'

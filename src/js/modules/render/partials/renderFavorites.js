@@ -1,5 +1,5 @@
-import { createFavoriteList } from '../components/favoriteList.js'
-import { clearElement } from '../utils/utils.js'
+import { createFavoriteList } from '../../components/favoriteList.js'
+import { clearElement } from '../../utils/utils.js'
 
 //renders favoritelist to HTML
 export function renderFavorites() {

@@ -1,4 +1,4 @@
-import { createPlatformList } from '../components/platformList.js'
+import { createPlatformList } from '../../components/platformList.js'
 
 //render platform list
 export function renderPlatformSection(data) {

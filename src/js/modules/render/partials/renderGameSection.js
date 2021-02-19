@@ -1,6 +1,6 @@
-import { createGameList } from '../components/gameList.js'
-import { createGenreFilter } from '../components/genreFilter.js'
-import { clearElement } from '../utils/utils.js'
+import { createGameList } from '../../components/gameList.js'
+import { createGenreFilter } from '../../components/genreFilter.js'
+import { clearElement } from '../../utils/utils.js'
 
 //render gameslist 
 export function renderGameList(data, genre) {

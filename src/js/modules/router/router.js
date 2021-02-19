@@ -1,5 +1,5 @@
-import { renderOverview } from '../render/renderOverview.js'
-import { renderDetail } from '../render/renderDetails.js'
+import { renderOverview } from '../render/pages/renderOverview.js'
+import { renderDetail } from '../render/pages/renderDetails.js'
 
 let chosenFilter = JSON.parse(localStorage.getItem('FILTER'))
 if (!chosenFilter) {
