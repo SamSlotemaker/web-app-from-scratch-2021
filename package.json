@@ -1,0 +1,23 @@
+{
+  "name": "ss-wafs-2021",
+  "version": "1.0.0",
+  "description": "web app for the course web app from scratch",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^7.20.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SamSlotemaker/web-app-from-scratch-2021.git"
+  },
+  "author": "Sam Slotemaker",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SamSlotemaker/web-app-from-scratch-2021/issues"
+  },
+  "homepage": "https://github.com/SamSlotemaker/web-app-from-scratch-2021#readme"
+}

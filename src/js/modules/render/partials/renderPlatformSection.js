@@ -2,7 +2,7 @@ import { createPlatformList } from '../../components/platformList.js'
 
 //render platform list
 export function renderPlatformSection(data) {
-    const platformSection = document.querySelector('.platforms')
+    const platformSection = document.querySelector('.platforms');
     //create platformlist
     const platformList = createPlatformList(data)
     //add platformlist to html
