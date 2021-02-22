@@ -9,15 +9,17 @@ export function renderFavorites() {
     //clear list
     clearElement(favoriteUL)
 
+
     //add game items when existing
     if (favoriteGames) {
         if (favoriteGames.length > 0) {
             noFavoritesMessage.remove()
+            const favoriteGameArray = createFavoriteList(favoriteGames)
+            favoriteGameArray.forEach(game => {
+                favoriteUL.insertAdjacentHTML('beforeend', game)
+            })
         }
-        const favoriteGameArray = createFavoriteList(favoriteGames)
-        favoriteGameArray.forEach(game => {
-            favoriteUL.insertAdjacentHTML('beforeend', game)
-        })
+
     }
 
 
