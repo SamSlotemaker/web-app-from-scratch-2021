@@ -22,11 +22,9 @@ export function checkButtonState(game, favorites) {
     if (favorites) {
         //check if game is in favoritelist
         if (checkIfAlreadyFavorite(game, favorites)) {
-            console.log('return active button')
             return '<button aria-label="favorite" class="favorite-button active">'
         }
         else {
-            console.log('return in-active button')
             return '<button aria-label="favorite" class="favorite-button">'
         }
     }
@@ -56,4 +54,9 @@ function removeFromFavorites(game, array) {
     })
     return newArray
 
+}
+
+//returns average rating from given array rounded to 2 decimals
+export function calculateAverageRating(array) {
+    return Math.round(array.map(item => item.rating).reduce((acc, value) => acc + value) / array.length * 100) / 100
 }

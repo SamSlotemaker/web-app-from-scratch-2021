@@ -1,5 +1,6 @@
 import { createFavoriteList } from '../../components/favoriteList.js'
 import { clearElement } from '../../utils/utils.js'
+import { calculateAverageRating } from '../../utils/favorites.js'
 
 //renders favoritelist to HTML
 export function renderFavorites() {
@@ -11,16 +12,15 @@ export function renderFavorites() {
 
 
     //add game items when existing
-    if (favoriteGames) {
-        if (favoriteGames.length > 0) {
-            noFavoritesMessage.remove()
-            const favoriteGameArray = createFavoriteList(favoriteGames)
-            favoriteGameArray.forEach(game => {
-                favoriteUL.insertAdjacentHTML('beforeend', game)
-            })
-        }
+    if (favoriteGames && favoriteGames.length > 0) {
+        noFavoritesMessage.remove()
+        const favoriteGameArray = createFavoriteList(favoriteGames)
+        const averageRating = calculateAverageRating(favoriteGames)
+        const averageRatingElement = `<strong>Average Rating: ${averageRating}</strong>`
+        favoriteUL.insertAdjacentHTML('beforebegin', averageRatingElement)
 
+        favoriteGameArray.forEach(game => {
+            favoriteUL.insertAdjacentHTML('beforeend', game)
+        })
     }
-
-
 }
