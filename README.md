@@ -31,11 +31,11 @@ Functions that return a Component: create'Component', i.e. `createGameList`, `cr
 
 
 ### Actor diagram
-![actor-diagram (1)](https://user-images.githubusercontent.com/60625329/108070610-00102d00-7065-11eb-899d-5f328c29d8e1.png)
+![actor-diagram 2](https://user-images.githubusercontent.com/60625329/109555063-61a8b080-7ad5-11eb-992c-4704f44a7e14.png)
 
 
 ### Interaction diagram
-![interaction-diagram (1)](https://user-images.githubusercontent.com/60625329/108070608-ff779680-7064-11eb-9a09-7457b3a16289.png)
+![interaction-diagram2](https://user-images.githubusercontent.com/60625329/109555051-5f465680-7ad5-11eb-83ba-e42c8ba97ed3.png)
 
 
 ## :gear:Installation
