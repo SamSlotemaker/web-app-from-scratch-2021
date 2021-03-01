@@ -20,14 +20,35 @@ export async function renderOverview(genre) {
     //clear element and create skeleton
     clearElement(mainContainer)
     renderOverviewContainer(mainContainer)
+
+    console.log('render overview')
+    //get searchform
+
+
     renderFavorites()
     //fetch game and platform data
     const gameData = await getData(subjectGames, pageQuery, GAMES_KEY)
     const platformData = await getData(subjectPlatforms, ordering, PLATFORMS_KEY)
+
+    let searchInput = document.querySelector('input')
+    handleSearchForm(searchInput, gameData)
+
     renderGenreForm(gameData)
     renderGameList(gameData, genre)
     renderPlatformSection(platformData)
+
 }
 
 
+function handleSearchForm(input, data) {
+    console.log(data)
+    let dataList = data.results
+    input.addEventListener('keyup', () => {
+        const filteredData = dataList.filter(item => {
+            return item.name.toLowerCase().includes(input.value.toLowerCase())
+        })
+        data.results = filteredData
+        renderGameList(data, 'all')
+    })
+}
 

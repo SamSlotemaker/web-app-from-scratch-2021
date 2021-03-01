@@ -4,7 +4,9 @@ const baseURL = 'https://api.rawg.io/api/'
 export const getData = async (subject, query, KEY) => {
     try {
         let url = baseURL + subject
-        !query || (url += query) //add query to url when given
+        !query || (url += query + '&') //add query to url when given
+        query || (url += '?')
+        url += 'key=b7f15a856765429c84087fadd9e167e7'
         //check if key has been given to check localstorage
         let localStorageData
         if (KEY) {
@@ -14,6 +16,9 @@ export const getData = async (subject, query, KEY) => {
                 return localStorageData
             }
         }
+
+
+
         //fetch data if not available local
         const response = await fetch(url)
         const data = await response.json()

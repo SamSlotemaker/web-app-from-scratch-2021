@@ -2,6 +2,9 @@
 export function renderOverviewContainer(container) {
     const overviewContainer =
         `<h1>Most popular games</h1>
+        <form>
+        <input type="text" placeholder="search">
+        </form> 
         <section>
             <h2>Favorites</h2>
             <p class="no-favorites-message">You have no favorites yet</p>
