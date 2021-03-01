@@ -29,7 +29,6 @@ export function checkButtonState(game, favorites) {
         }
     }
     else {
-        console.log('return in-active button')
         return '<button aria-label="favorite" class="favorite-button">'
     }
 }
