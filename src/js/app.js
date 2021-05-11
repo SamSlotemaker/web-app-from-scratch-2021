@@ -1,7 +1,5 @@
 import { router } from './modules/router/router.js'
 
-//start apps
+//start apps    
 router()
-
-
 

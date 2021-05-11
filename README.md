@@ -31,7 +31,7 @@ Functions that return a Component: create'Component', i.e. `createGameList`, `cr
 
 
 ### Actor diagram
-![actor-diagram 2](https://user-images.githubusercontent.com/60625329/109555063-61a8b080-7ad5-11eb-992c-4704f44a7e14.png)
+![actor-diagram](https://user-images.githubusercontent.com/60625329/117856983-9468e500-b28c-11eb-94df-66fe385c7091.png)
 
 
 ### Interaction diagram
